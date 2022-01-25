@@ -74,3 +74,49 @@ This project was create to learn more about android and how to develop a native 
     </ListView>
 </RelativeLayout>
 ```
+
+- Creating a simple native form
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.FormNewAlunoActivity">
+
+    <EditText android:id="@+id/activity_form_student_name"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="Name"
+    />
+
+    <EditText android:id="@+id/activity_form_student_phone"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:inputType="phone"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+    />
+
+    <EditText android:id="@+id/activity_form_student_email"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content"
+        android:hint="E-Mail"
+    />
+
+    <Button android:id="@+id/activity_form_student_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Save"
+
+        />
+
+</LinearLayout>
+```
+
