@@ -46,7 +46,7 @@ This project was create to learn more about android and how to develop a native 
 ```
 # Examples
 
-# Creating a simple List with a bottom on the Scream
+- Creating a simple List with a bottom on the Screen
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout
