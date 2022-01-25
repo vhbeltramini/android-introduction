@@ -21,6 +21,11 @@ This project was create to learn more about android and how to develop a native 
   -  Sensors
   -  Connectivity
 
+# The Activity Lifecycle
+<p align="center">
+<img src="https://developer.android.com/guide/components/images/activity_lifecycle.png">
+</p>
+
 # Starting 
 - **Registering the Main/Launcher Activity on the AndroidManifest.xml**
 ```xml
