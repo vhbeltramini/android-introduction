@@ -44,3 +44,33 @@ This project was create to learn more about android and how to develop a native 
     </application>
 </manifest>
 ```
+# Examples
+
+# Creating a simple List with a bottom on the Scream
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_main_button_new_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="26dp"
+        android:clickable="true" />
+
+    <ListView
+        android:id="@+id/activity_main_list_students"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+</RelativeLayout>
+```
