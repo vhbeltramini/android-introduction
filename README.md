@@ -120,3 +120,8 @@ This project was create to learn more about android and how to develop a native 
 </LinearLayout>
 ```
 
+- To show terminal logs we can use the Log class of android like the example below
+```java
+        Log.i("Tag of the log", "description: " + item_to_show);
+```
+
