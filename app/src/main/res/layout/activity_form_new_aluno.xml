@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.activity.FormNewAlunoActivity">
+        tools:context=".ui.activity.FormNewStudentActivity">
     
         <EditText android:id="@+id/activity_form_student_name"
             android:layout_width="match_parent"

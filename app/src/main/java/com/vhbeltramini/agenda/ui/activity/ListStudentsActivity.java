@@ -3,10 +3,13 @@ package com.vhbeltramini.agenda.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +20,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vhbeltramini.agenda.R;
 import com.vhbeltramini.agenda.dao.StudentDao;
 import com.vhbeltramini.agenda.model.Student;
+import com.vhbeltramini.agenda.ui.adapter.ListStudentsAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.vhbeltramini.agenda.ui.activity.DataConstants.STUDENT_KEY;
 
@@ -24,8 +31,8 @@ import static com.vhbeltramini.agenda.ui.activity.DataConstants.STUDENT_KEY;
 public class ListStudentsActivity extends AppCompatActivity {
 
     final private StudentDao studentDao = new StudentDao();
-    ArrayAdapter<Student> adapter;
     private ListView studentsListView;
+    private ListStudentsAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,15 +83,12 @@ public class ListStudentsActivity extends AppCompatActivity {
     }
 
     private void handleStudentsAdapter() {
-        adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1);
+        adapter = new ListStudentsAdapter(this);
         studentsListView.setAdapter(adapter);
     }
 
     private void handleStudentListSelection() {
         handleSimpleClickStudentList();
-//        handleLongClickStudentList();
     }
 
     private void handleSimpleClickStudentList() {
@@ -95,25 +99,15 @@ public class ListStudentsActivity extends AppCompatActivity {
         );
     }
 
-//    private void handleLongClickStudentList() {
-//        studentsListView.setOnItemLongClickListener((adapterView, view, position, id) -> {
-//                Student student = (Student) adapterView.getItemAtPosition(position);
-//                studentDao.delete(student);
-//                adapter.remove(student);
-//                return false;
-//            }
-//        );
-//    }
-
     private void openFormForEdit(Student student) {
-        Intent goToFormStudentWithData = new Intent(ListStudentsActivity.this, FormNewAlunoActivity.class);
+        Intent goToFormStudentWithData = new Intent(ListStudentsActivity.this, FormNewStudentActivity.class);
         goToFormStudentWithData.putExtra(STUDENT_KEY, student);
         startActivity(goToFormStudentWithData);
     }
 
     private void openFormAddNewStudent() {
         FloatingActionButton addStudentButton = findViewById(R.id.activity_list_students_button_new_student);
-        addStudentButton.setOnClickListener(v -> startActivity(new Intent(ListStudentsActivity.this, FormNewAlunoActivity.class)));
+        addStudentButton.setOnClickListener(v -> startActivity(new Intent(ListStudentsActivity.this, FormNewStudentActivity.class)));
     }
 
 }

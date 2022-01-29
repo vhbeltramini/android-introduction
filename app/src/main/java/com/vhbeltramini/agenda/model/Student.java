@@ -52,7 +52,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return name + " - " + phone;
     }
 
     public boolean hasValidId() {

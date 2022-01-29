@@ -15,7 +15,7 @@ import com.vhbeltramini.agenda.dao.StudentDao;
 import com.vhbeltramini.agenda.model.Student;
 import static com.vhbeltramini.agenda.ui.activity.DataConstants.STUDENT_KEY;
 
-public class FormNewAlunoActivity extends AppCompatActivity {
+public class FormNewStudentActivity extends AppCompatActivity {
 
     public static final String EDIT_STUDENT_TITLE = "Edit Student";
     public static final String NEW_STUDENT_TITLE = "New Student";
