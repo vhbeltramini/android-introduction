@@ -1,15 +1,13 @@
 package com.vhbeltramini.agenda.ui.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -22,8 +20,6 @@ import com.vhbeltramini.agenda.dao.StudentDao;
 import com.vhbeltramini.agenda.model.Student;
 import com.vhbeltramini.agenda.ui.adapter.ListStudentsAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.vhbeltramini.agenda.ui.activity.DataConstants.STUDENT_KEY;
 
@@ -39,9 +35,6 @@ public class ListStudentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_students);
         setTitle("All Students");
-
-        studentDao.saveStudent(new Student("Victor", "7777-7777", "vh@gmail.com"));
-        studentDao.saveStudent(new Student("Maits", "7777-7777", "maits@gmail.com"));
 
         handleListStudentes();
         openFormAddNewStudent();
@@ -61,11 +54,18 @@ public class ListStudentsActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
-    private void handleRemoveStudent(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        Student student = adapter.getItem(menuInfo.position);
-        studentDao.delete(student);
-        adapter.remove(student);
+    private void handleRemoveStudent(final MenuItem item) {
+        new AlertDialog
+                .Builder(this)
+                .setTitle("Removing Student")
+                .setMessage("You really want to remove this student ?")
+                .setPositiveButton("Yes", (dialogInterface, i) -> {
+                        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                        Student student = adapter.getItem(menuInfo.position);
+                        studentDao.delete(student);
+                        adapter.remove(student);
+                })
+                .setNegativeButton("No", null);
     }
 
     @Override

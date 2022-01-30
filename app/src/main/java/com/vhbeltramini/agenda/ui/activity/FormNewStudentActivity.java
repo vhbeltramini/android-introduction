@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.vhbeltramini.agenda.R;
@@ -28,7 +27,7 @@ public class FormNewStudentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_new_aluno);
+        setContentView(R.layout.activity_form_new_students);
         setTitle("New Students");
         studentDao = new StudentDao();
 

@@ -41,18 +41,24 @@ public class ListStudentsAdapter extends BaseAdapter {
     @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-         View createdView = LayoutInflater
-                .from(context)
-                .inflate(R.layout.item_student, viewGroup, false);
+         View createdView = createViewForAdapter(viewGroup);
 
-        Student student = students.get(position);
+        setDataOnView(createdView, students.get(position));
 
+        return createdView;
+    }
+
+    private void setDataOnView(View createdView, Student student) {
         TextView nameField = createdView.findViewById(R.id.item_student_name);
         nameField.setText(student.getName());
         TextView phoneField = createdView.findViewById(R.id.item_student_phone);
         phoneField.setText("Phone : " + student.getPhone());
+    }
 
-        return createdView;
+    private View createViewForAdapter(ViewGroup viewGroup) {
+        return LayoutInflater
+                .from(context)
+                .inflate(R.layout.item_student, viewGroup, false);
     }
 
     public void remove(Student student) {
